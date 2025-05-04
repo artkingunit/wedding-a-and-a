@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Site</title>
+  <style>
+    body {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    .swans {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      margin-top: 50px;
+    }
+    .swan {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+    }
+    #leftSwan {
+      left: 0;
+      animation: leftMove 5s forwards;
+    }
+    #rightSwan {
+      right: 0;
+      animation: rightMove 5s forwards;
+    }
+    #heart {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      opacity: 0;
+      animation: fadeIn 1s 5s forwards;
+    }
+    @keyframes leftMove {
+      to { left: calc(50% - 110px); }
+    }
+    @keyframes rightMove {
+      to { right: calc(50% - 110px); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="swans">
+    <img src="swan_left.png" class="swan" id="leftSwan">
+    <img src="swan_right.png" class="swan" id="rightSwan">
+    <div id="heart">❤️</div>
+  </div>
+</body>
+</html>
