@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Invite</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+      background: #fff;
+    }
+
+    .hero {
+      background: url('background.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+    }
+
+    .hero p { font-size: 1.2em; margin-bottom: 10px; }
+    .hero h1 { font-size: 8vw; margin: 5px 0; }
+    .hero h2 { font-size: 5vw; margin: 5px 0; }
+    .hero address { font-size: 4vw; }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+      border-radius: 30px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .swans-section {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .swans {
+      width: 100%;
+      max-width: 600px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swan {
+      position: absolute;
+      width: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: left 5s ease-in-out;
+    }
+
+    .kiss {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .thank-you {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      max-width: 90%;
+      text-align: center;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p>WE'RE GETTING MARRIED</p>
+  <h1>ARTEM & ANASTASIA</h1>
+  <h2>July 6–8</h2>
+  <address>7333 Miller Rd, Anacortes, WA 98221</address>
+  <button class="btn" onclick="startAnimation()">поєднати лебедів</button>
+</div>
+
+<div class="swans-section" id="swans">
+  <div class="swans">
+    <img src="swan_left.png" class="swan" id="leftSwan" style="left: 0;" />
+    <img src="swan_right.png" class="swan" id="rightSwan" style="left: calc(100% - 100px);" />
+    <div class="kiss" id="kiss">❤️</div>
+  </div>
+  <button class="thank-you" id="thankBtn" onclick="document.getElementById('top').scrollIntoView({ behavior: 'smooth' });">
+    Дякуємо за поєднання лебедів, тепер ідемо до інформації
+  </button>
+</div>
+
+<script>
+  function startAnimation() {
+    document.getElementById('swans').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('leftSwan').style.left = "calc(50% - 110px)";
+    document.getElementById('rightSwan').style.left = "calc(50% + 10px)";
+    setTimeout(() => {
+      document.getElementById('kiss').style.opacity = 1;
+      document.getElementById('thankBtn').style.display = 'block';
+    }, 5000);
+  }
+</script>
+</body>
+</html>
